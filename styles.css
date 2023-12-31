@@ -1,0 +1,168 @@
+.custom-checkbox {
+	cursor: pointer;
+
+  display: flex;
+  align-items: first baseline;
+
+  --checked-state-bg-color: #9b2efa;
+  --checked-state-check-color: #fff;
+  --outline-color: var(--checked-state-bg-color);
+  --outline-offset: 2px;
+}
+
+/* hide the checkbox accessibly */
+.custom-checkbox input[type="checkbox"] {
+  /* remove the checkbox from the page flow, positioning it on top of the SVG */
+  position: absolute;
+  /* set same dimensions as the SVG */
+  width: 1em;
+  height: 1em;
+  /* hide it */
+  opacity: 0.00001;
+  z-index: -100000;
+}
+
+/* basic styles for the svg */
+.custom-checkbox svg {
+  display: inline-block;
+  /* set SVG dimensions in ems; i.e. relative to the font size so that it scales with the size of the font. */
+  width: 1.1em;
+  height: 1.1em;
+  
+  margin-right: 0.75em;
+  margin-top: 0.5em;
+
+  position: relative;
+  top: 4px;
+}
+/* apply a transition to the elements inside the svg */
+.custom-checkbox svg * {
+  transition: all 0.1s linear;
+}
+
+/*  style changes inside the svg when the checkbox is checked */
+.custom-checkbox input[type="checkbox"]:checked + svg .checkbox__background {
+  fill: var(--checked-state-bg-color);
+  stroke: var(--checked-state-bg-color);
+}
+
+.custom-checkbox input[type="checkbox"]:checked + svg  .checkbox__checkmark {
+  stroke: var(--checked-state-check-color);
+}
+
+
+.custom-checkbox input[type="checkbox"]:focus + svg {
+  outline: 3px solid var(--outline-color);
+  outline-offset: var(--outline-offset);
+}
+
+.custom-checkbox input[type="checkbox"]:focus:not(:focus-visible) + svg {
+  outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Default CSS */
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  background-color: #45475a;
+  color: #f8f8f8;
+  height: 100vh;
+  display: flex;
+  padding: 30px;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 1.75em;
+}
+.wrapper-container {
+  margin: auto;
+  position: relative;
+  top: -50px;
+}
+
+*{
+  user-select: none;
+}
+
+.wrapper-container h3 {
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 24pt;
+  line-height: 1.5em;
+}
+
+.wrapper-container p {
+  margin: 0;
+  line-height: 2em;
+}
+ul {
+  padding-left: 15px !important;
+}
+li {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  align-items: last baseline;
+}
+
+p{
+  width: calc(100%);
+  font-size: 15px;
+  letter-spacing: .1em;
+  line-height: 1.5em !important;
+}
+a{
+  color: hsl(272, 100%, 75%);
+  margin: 0 4px;
+}
+
+/* Default */
+svg{
+  display: none;
+}
+input[type="checkbox"]{
+  display: inline-block;
+}
+
+/* Main Tips CSS */
+.capitalize {
+  text-transform: capitalize;
+}
+.capitalize-first::first-letter {
+  text-transform: capitalize;
+}
+/* 
