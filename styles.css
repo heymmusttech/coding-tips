@@ -1,5 +1,5 @@
 /* Animated Hieght Accordion w/ grid */
-.grid-accordion {
+.custom-accordion {
   --accordion-color: #6a6c81;
   --accordion-border-color: #9b2efa;
   --accordion-bg-color: #fff;
@@ -9,63 +9,63 @@
   color: var(--accordion-color);
   border-radius: 8px;
   overflow: hidden;
+  cursor: pointer;
 
   .title {
     font-weight: 700;
     font-size: 1.25rem;
     padding: 1rem;
+    > span {
+      background-color: var(--accordion-border-color);
+      color: var(--accordion-bg-color);
+      font-size: 9pt;
+      text-transform: capitalize;
+      font-weight: 600;
+      padding: 0.2em 0.4em;
+      border-radius: 0.4em;
+      margin-left: 0.4em;
+      position: relative;
+      top: -3px;
+    }
   }
 
   .body {
     padding-inline: 1rem;
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: 250ms grid-template-rows ease;
-    > div {
+  }
+
+  &.w-grid {
+    .body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: 250ms grid-template-rows ease;
+      > div {
+        overflow: hidden;
+        /* margin-bottom: 1em; */
+      }
+    }
+
+    &:hover .body {
+      grid-template-rows: 1fr;
+      > div {
+        margin-bottom: 1em;
+      }
+    }
+  }
+
+  &.w-heigth {
+    .body {
+      height: 0;
+      transition: 500ms height ease;
       overflow: hidden;
-      /* margin-bottom: 1em; */
+      > div {
+        margin-bottom: 1em;
+      }
     }
-  }
 
-  &:hover .body {
-    grid-template-rows: 1fr;
-    > div {
-      margin-bottom: 1em;
+    &:hover .body {
+      height: auto;
+      overflow: visible;
     }
-  }
-}
-
-/* Regular Accordion w/ height */
-.regular-accordion {
-  --accordion-color: #6a6c81;
-  --accordion-border-color: #9b2efa;
-  --accordion-bg-color: #fff;
-
-  border-left: 16px solid var(--accordion-border-color);
-  background-color: var(--accordion-bg-color);
-  color: var(--accordion-color);
-  border-radius: 8px;
-  overflow: hidden;
-
-  .title {
-    font-weight: 700;
-    font-size: 1.25rem;
-    padding: 1rem;
-  }
-
-  .body {
-    height: 0;
-    padding-inline: 1rem;
-    transition: 500ms height ease;
-    overflow: hidden;
-    > div {
-      margin-bottom: 1em;
-    }
-  }
-
-  &:hover .body {
-    height: auto;
-    overflow: visible;
   }
 }
 
