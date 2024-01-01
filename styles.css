@@ -1,5 +1,5 @@
 /* Animated Hieght Accordion w/ grid */
-.grid-accordion{
+.grid-accordion {
   --accordion-color: #6a6c81;
   --accordion-border-color: #9b2efa;
   --accordion-bg-color: #fff;
@@ -15,10 +15,10 @@
     font-size: 1.25rem;
     padding: 1rem;
   }
-  
+
   .body {
     padding-inline: 1rem;
-    display: grid; 
+    display: grid;
     grid-template-rows: 0fr;
     transition: 250ms grid-template-rows ease;
     > div {
@@ -26,17 +26,17 @@
       /* margin-bottom: 1em; */
     }
   }
-  
+
   &:hover .body {
     grid-template-rows: 1fr;
-    > div{
+    > div {
       margin-bottom: 1em;
     }
   }
 }
 
 /* Regular Accordion w/ height */
-.regular-accordion{
+.regular-accordion {
   --accordion-color: #6a6c81;
   --accordion-border-color: #9b2efa;
   --accordion-bg-color: #fff;
@@ -52,7 +52,7 @@
     font-size: 1.25rem;
     padding: 1rem;
   }
-  
+
   .body {
     height: 0;
     padding-inline: 1rem;
@@ -62,44 +62,12 @@
       margin-bottom: 1em;
     }
   }
-  
+
   &:hover .body {
     height: auto;
     overflow: visible;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Default CSS */
 body {
@@ -120,7 +88,7 @@ body {
   /* top: -50px; */
 }
 
-*{
+* {
   user-select: none;
   box-sizing: border-box;
 }
@@ -136,40 +104,10 @@ body {
   margin: 0;
   line-height: 2em;
 }
-ul {
-  padding-left: 15px !important;
-}
-li {
-  display: flex;
-  list-style: none;
-  gap: 10px;
-  align-items: last baseline;
-}
 
-p{
+p {
   width: calc(100%);
   font-size: 15px;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   line-height: 1.5em !important;
 }
-a{
-  color: hsl(272, 100%, 75%);
-  margin: 0 4px;
-}
-
-/* Default */
-svg{
-  display: none;
-}
-input[type="checkbox"]{
-  display: inline-block;
-}
-
-/* Main Tips CSS */
-.capitalize {
-  text-transform: capitalize;
-}
-.capitalize-first::first-letter {
-  text-transform: capitalize;
-}
-/* 
