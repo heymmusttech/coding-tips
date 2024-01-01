@@ -1,68 +1,73 @@
-/* Inclusively-Hidden Custom-Styled Checkbox Input : */
-.custom-checkbox {
-	cursor: pointer;
+/* Animated Hieght Accordion w/ grid */
+.grid-accordion{
+  --accordion-color: #6a6c81;
+  --accordion-border-color: #9b2efa;
+  --accordion-bg-color: #fff;
 
-  display: flex;
-  align-items: first baseline;
+  border-left: 16px solid var(--accordion-border-color);
+  background-color: var(--accordion-bg-color);
+  color: var(--accordion-color);
+  border-radius: 8px;
+  overflow: hidden;
 
-  --checked-state-bg-color: #9b2efa;
-  --checked-state-check-color: #fff;
-  --outline-color: var(--checked-state-bg-color);
-  --outline-offset: 2px;
-}
-
-/* hide the checkbox accessibly */
-.custom-checkbox input[type="checkbox"] {
-  /* remove the checkbox from the page flow, positioning it on top of the SVG */
-  position: absolute;
-  /* set same dimensions as the SVG */
-  width: 1em;
-  height: 1em;
-  /* hide it */
-  opacity: 0.00001;
-  z-index: -100000;
-}
-
-/* basic styles for the svg */
-.custom-checkbox svg {
-  display: inline-block;
-  /* set SVG dimensions in ems; i.e. relative to the font size so that it scales with the size of the font. */
-  width: 1.1em;
-  height: 1.1em;
+  .title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 1rem;
+  }
   
-  margin-right: 0.75em;
-  margin-top: 0.5em;
-
-  position: relative;
-  top: 4px;
-}
-/* apply a transition to the elements inside the svg */
-.custom-checkbox svg * {
-  transition: all 0.1s linear;
-}
-
-/*  style changes inside the svg when the checkbox is checked */
-.custom-checkbox input[type="checkbox"]:checked + svg .checkbox__background {
-  fill: var(--checked-state-bg-color);
-  stroke: var(--checked-state-bg-color);
-}
-
-.custom-checkbox input[type="checkbox"]:checked + svg  .checkbox__checkmark {
-  stroke: var(--checked-state-check-color);
+  .body {
+    padding-inline: 1rem;
+    display: grid; 
+    grid-template-rows: 0fr;
+    transition: 250ms grid-template-rows ease;
+    > div {
+      overflow: hidden;
+      /* margin-bottom: 1em; */
+    }
+  }
+  
+  &:hover .body {
+    grid-template-rows: 1fr;
+    > div{
+      margin-bottom: 1em;
+    }
+  }
 }
 
+/* Regular Accordion w/ height */
+.regular-accordion{
+  --accordion-color: #6a6c81;
+  --accordion-border-color: #9b2efa;
+  --accordion-bg-color: #fff;
 
-.custom-checkbox input[type="checkbox"]:focus + svg {
-  outline: 3px solid var(--outline-color);
-  outline-offset: var(--outline-offset);
+  border-left: 16px solid var(--accordion-border-color);
+  background-color: var(--accordion-bg-color);
+  color: var(--accordion-color);
+  border-radius: 8px;
+  overflow: hidden;
+
+  .title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 1rem;
+  }
+  
+  .body {
+    height: 0;
+    padding-inline: 1rem;
+    transition: 500ms height ease;
+    overflow: hidden;
+    > div {
+      margin-bottom: 1em;
+    }
+  }
+  
+  &:hover .body {
+    height: auto;
+    overflow: visible;
+  }
 }
-
-.custom-checkbox input[type="checkbox"]:focus:not(:focus-visible) + svg {
-  outline: none;
-}
-
-
-
 
 
 
@@ -103,7 +108,7 @@ body {
   background-color: #45475a;
   color: #f8f8f8;
   height: 100vh;
-  display: flex;
+  /* display: flex; */
   padding: 30px;
   margin: 0;
   box-sizing: border-box;
@@ -112,11 +117,12 @@ body {
 .wrapper-container {
   margin: auto;
   position: relative;
-  top: -50px;
+  /* top: -50px; */
 }
 
 *{
   user-select: none;
+  box-sizing: border-box;
 }
 
 .wrapper-container h3 {
