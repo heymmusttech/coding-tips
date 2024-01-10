@@ -1,89 +1,40 @@
-/* Animated accordion height from 0 to auto w/ grid */
-.custom-accordion {
-  --accordion-color: #41435a;
-  --accordion-border-color: #9b2efa;
-  --accordion-bg-color: #fff;
-
-  border-left: 16px solid var(--accordion-border-color);
-  background-color: var(--accordion-bg-color);
-  color: var(--accordion-color);
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-
-  .title {
-    font-weight: 700;
-    font-size: 1.25rem;
-    padding: 1rem;
-    height: 62.5px;
-    > span {
-      background-color: var(--accordion-border-color);
-      color: var(--accordion-bg-color);
-      font-size: 9pt;
-      text-transform: capitalize;
-      font-weight: 600;
-      padding: 0.2em 0.4em;
-      border-radius: 0.4em;
-      margin-left: 0.4em;
-      position: relative;
-      top: -3px;
-    }
-  }
-
-  .body {
-    padding-inline: 1rem;
-    opacity: 0.9;
-  }
-
-  &.w-grid {
-    .body {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: 250ms grid-template-rows ease;
-      > div {
-        overflow: hidden;
-        /* margin-bottom: 1em; */
-      }
-    }
-
-    &:hover .body {
-      grid-template-rows: 1fr;
-      > div {
-        margin-bottom: 1em;
-      }
-    }
-  }
-
-  &.w-heigth {
-    .body {
-      height: 0;
-      transition: 500ms height ease;
-      overflow: hidden;
-      > div {
-        margin-bottom: 1em;
-      }
-    }
-
-    &:hover .body {
-      height: auto;
-      overflow: visible;
-    }
+/**  A simple CSS trick for dark mode  **/
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    --body-bg: #ffffff;
+    --body-color: #000000;
   }
 }
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg: #000000;
+    --body-color: #ffffff;
+  }
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--body-color);
+}
+
+/**  CODE.TIPS  **/
 
 /* Default CSS */
 * {
   user-select: none;
   box-sizing: border-box;
+
+  text-align: center !important;
 }
 body {
-  font-family: "Roboto", sans-serif;
   font-size: 18px;
-  background-color: #45475a;
-  color: #f8f8f8;
+  font-family: "Roboto", sans-serif;
   height: 100vh;
   /* display: flex; */
-  padding: 30px;
+  padding: 0 30px;
   margin: 0;
   box-sizing: border-box;
   line-height: 1.75em;
@@ -92,10 +43,16 @@ body {
   margin: auto;
   position: relative;
   /* top: -50px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+  margin-top: -25px;
 }
 
 .wrapper-container h3 {
-  margin-bottom: 30px;
+  margin-bottom: 28px;
   font-weight: bold;
   font-size: 24pt;
   line-height: 1.5em;
@@ -108,7 +65,7 @@ body {
 
 p {
   width: calc(100%);
-  font-size: 15px;
+  font-size: 16px;
   letter-spacing: 0.1em;
   line-height: 1.5em !important;
   text-align: justify;
