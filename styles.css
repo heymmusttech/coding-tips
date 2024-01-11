@@ -1,28 +1,44 @@
 /**  A simple CSS trick for dark mode  **/
-/* Light mode */
-@media (prefers-color-scheme: light) {
-  :root {
-    --body-bg: #ffffff;
-    --body-color: #000000;
-  }
+.images--wrapper img {
+  max-width: 25%;
+  width: 100%;
+
+  /* Make Images Same Height % */
+  aspect-ratio: 3/2;
+
+  /* Make Stretched Images Fit Within Its Container */
+  object-fit: contain;
+
+  /* Remove White Background */
+  mix-blend-mode: color-burn;
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --body-bg: #000000;
-    --body-color: #ffffff;
-  }
-}
+/** ©2024 {CODING.TIPS}  **/
 
-body {
-  background-color: var(--body-bg);
-  color: var(--body-color);
-}
+/* 
 
-/**  CODE.TIPS  **/
 
-/* Default CSS */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Default CSS */
 * {
   user-select: none;
   box-sizing: border-box;
@@ -33,12 +49,25 @@ body {
   font-size: 18px;
   font-family: "Roboto", sans-serif;
   height: 100vh;
+  background-color: #41435a30;
+  color: #41435a;
   /* display: flex; */
-  padding: 0 30px;
+  padding: 20px 40px;
   margin: 0;
   box-sizing: border-box;
   line-height: 1.75em;
 }
+
+.images--wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  max-width: 600px;
+  width: 100%;
+  margin: 0;
+}
+
 .wrapper-container {
   margin: auto;
   position: relative;
@@ -69,4 +98,10 @@ p {
   letter-spacing: 0.1em;
   line-height: 1.5em !important;
   text-align: justify;
+  padding-top: 80px;
+  font-weight: bold;
+  text-transform: lowercase;
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }
