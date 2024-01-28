@@ -1,16 +1,10 @@
 /**  A simple CSS trick for dark mode  **/
 .images--wrapper img {
-  max-width: 25%;
+  --shadow-color: #000000;
+  max-width: 75%;
   width: 100%;
-
-  /* Make Images Same Height % */
-  aspect-ratio: 3/2;
-
-  /* Make Stretched Images Fit Within Its Container */
-  object-fit: contain;
-
-  /* Remove White Background */
-  mix-blend-mode: color-burn;
+  /* box-shadow: 0px 10px 10px var(--shadow-color); */
+  filter: drop-shadow(0px 10px 10px var(--shadow-color));
 }
 
 /** ©2024 {CODING.TIPS}  **/
